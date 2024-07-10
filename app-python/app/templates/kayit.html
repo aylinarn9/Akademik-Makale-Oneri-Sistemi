@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kişisel Bilgi Formu</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+
+            width: 300px;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgb(23, 21, 21)
+        
+        }
+
+        h1 {
+            text-align: center;
+            text-decoration: underline;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="email"],
+        input[type="password"],
+        input[type="text"] {
+            width: calc(100% - 20px);
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"],
+        input[type="button"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover,
+        input[type="button"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <form action="/kaydol" method="post">
+        {% csrf_token %}
+        <h1>Kayıt Formu</h1>
+
+        <label for="email">E-posta Adresi:</label>
+        <input type="email"  name="eposta" required><br>
+
+        <label for="password">Şifre:</label>
+        <input type="password"name="sifre" required><br>
+
+        <label for="text">İlgi Alanları:</label>
+        <input type="text"  name="ilgi" required><br>
+
+
+        <input type="submit" value="Kaydol">
+        <br>
+        <br>
+        <input type="button" value="Geri" onclick="window.location.href='giris'">
+    </form>
+</body>
+
+</html>
